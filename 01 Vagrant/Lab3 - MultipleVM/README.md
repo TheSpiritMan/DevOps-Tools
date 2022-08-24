@@ -39,5 +39,4 @@ To check connectivity, try following steps:
 - Step 2: `ping 192.168.57.4`.
 - Step 3: Follow same from VM2.
 
-
 <b>This is for Lab3.</b>
