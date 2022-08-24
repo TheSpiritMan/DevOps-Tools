@@ -6,6 +6,7 @@ Vagrant.configure("2")do |config|
     config.vm.provision "file", source: "./Lab2_FileToCopy.txt", destination: "/home/vagrant/Copy_folder"
 
     config.vm.provider :virtualbox do |vb|
+        vb.name = "box1"
         vb.customize ["modifyvm", :id, "--memory", 1024]
         vb.customize ["modifyvm", :id, "--cpus", 1]
     end

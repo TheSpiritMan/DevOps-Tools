@@ -15,6 +15,10 @@ As we can see, we are using the same ubuntu image that we have used in [Lab1]().
 
 - `config.vm.provision "file", source: "./Lab2_FileToCopy.txt", destination: "/home/vagrant/Copy_folder"`: This is used to copy any file outside the synced folder.
 
+- `config.vm.provider :virtualbox do |vb|`: This is used to make changes in this virtualbox setting.
+
+- `vb.name = "box1"`: This is used to name the machine in virtualbox. If this is not included, then virtualbox will assign random name to this box which will be difficult to manage.
+
 - `config.vm.provider :virtualbox do |vb|`: This code assigned that we are using `virtualbox` as Vm provider. And we are again using method with variable `vb` to perform task.
 
 - `vb.customize ["modifyvm", :id, "--memory", 1024]`: This is used to customized the vm resource according to our need. This will assign 1024MB memory for our Box  `box1`.    
@@ -22,4 +26,24 @@ As we can see, we are using the same ubuntu image that we have used in [Lab1]().
 - `vb.customize ["modifyvm", :id, "--cpus", 1]`: This will assign 1 core CPU  for our Box  `box1`.
 - The method are close with the `end` command.
 
+
+### Validate Vagrantfile 
+Before running `vagrant up`, it is mandatory to run `vagrant validate` command to ensure every command is correct.
+
+It checks for syntax error and also check for resources such as file to be copy is available or not and so many.
+So, It is very good habit to run `vagrant validate` command before running `vagrant up`.
+
+If everything is correct. It gives message saying `Vagrantfile validated successfully`.
+
+### Running Vagrant 
+Since there are no error with the code. We can finally run `vagrant up` command to start our task.
+
+Remember it can take some time to complete task.
+
+### Accessing Box using ssh
+Since we have only one box in our vagrantfile, we can simply use `vagrant ssh` command to login through ssh.
+
+After logging through ssh, we get shell of the box. And we can do anything we like.
+
+This is it for Lab2.
 
