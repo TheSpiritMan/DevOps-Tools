@@ -3,7 +3,7 @@
 Vagrantfile of this lab can be a bit difficult to understand at first. But following this README file, everything can be clear.
 
 - `Vagrant.configure("2")do |config|` is the begineer line for every Vagrantfile. Here method is created with variable `config`.
-As we can see, we are using the same ubuntu image that we have used in [Lab1]().
+As we can see, we are using the same ubuntu image that we have used in [Lab1](https://github.com/TheSpiritMan/DevOps-Project/tree/main/01%20Vagrant/Lab1).
 - `config.vm.box = "ubuntu/xenial64"`: This command assigned the image name we will using.
 - `config.vm.hostname = "box1"`: This command is used to give custom name to the box. This will help us to manage the box more easily.
 - `config.vm.network "private_network", ip: "192.168.57.2"`: This is used to assigned private network to our box. The IP address here must be available in our `Virtualabox` network.
