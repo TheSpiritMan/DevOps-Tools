@@ -14,3 +14,10 @@ Vagrant.configure("2") do |config|
 end
 ```
 - The above code must be inside Vagrantfile. And using `vagrant up` will initiate the build.
+
+### Accessing Box using ssh
+Since we have only one box in our vagrantfile, we can simply use `vagrant ssh` command to login through ssh.
+
+After logging through ssh, we get shell of the box. And we can do anything we like.
+
+This is it for Lab1.

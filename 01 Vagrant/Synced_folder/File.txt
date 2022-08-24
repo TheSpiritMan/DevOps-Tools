@@ -1,0 +1,1 @@
+This is a synced folder which means everything changes in this folder will also happen inside box "/home/vagrant/Synced_folder".
