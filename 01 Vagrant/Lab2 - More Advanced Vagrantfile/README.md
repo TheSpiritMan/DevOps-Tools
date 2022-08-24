@@ -1,6 +1,8 @@
 ## Lab2 Vagrantfile
 
-Vagrantfile of this lab can be a bit difficult to understand at first. But following this README file, everything can be clear.
+Vagrantfile of this lab can be a bit difficult to understand at first. But following this README file can clear everything.
+
+
 
 - `Vagrant.configure("2")do |config|` is the begineer line for every Vagrantfile. Here method is created with variable `config`.
 As we can see, we are using the same ubuntu image that we have used in [Lab1](https://github.com/TheSpiritMan/DevOps-Project/tree/main/01%20Vagrant/Lab1).
@@ -54,4 +56,4 @@ We can find `/vagrant` folder inside that `box1`. This `/vagrant` folder is tota
 We can use `vagrant destroy` to destroy and delete all the vm using the same Vagrantfile.
 
 
-<b>This is it for Lab1. </b>
+<b>This is it for Lab2.</b>

@@ -3,11 +3,11 @@
 Vagrant is <b>Infrastructure as code</b>. It is used to manage hardware resources with the help of a code.
 It is mostly use to test our operation locally before uploading in the server.
 
-It uses a Virtualbox.
+It can use virtualization product such as: VirtualBox, VMware Fusion, or Hyper-V.
 
-So before using it you must have `virtualBox` in your system.
+So before using `vagrant` you must have `virtualBox` in your system.
 
-Visit this [Link](https://www.vagrantup.com/downloads) to install the vagrant in your machine.
+Visit this [Link](https://www.vagrantup.com/downloads) to install the `vagrant` in your machine.
 
 
 ### Getting Started
