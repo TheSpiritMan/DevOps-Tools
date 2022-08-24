@@ -29,7 +29,8 @@ But in this case, there are 2 VMs available. So to access VM through ssh, we nee
 As our VM are named as `vm1` and `vm2`, we must use following command to access VM through ssh:
 `vagrant ssh vm1`: For vm1
 `vagrant ssh vm2`: For vm2
-
+`vagrant ssh vm3`: For vm3
+`vagrant ssh vm4`: For vm4
 
 ### Networking Concept
 As we know, these 2 VMs are on same network. So they can ping eachother without any configuration.
@@ -37,6 +38,6 @@ As we know, these 2 VMs are on same network. So they can ping eachother without 
 To check connectivity, try following steps:
 - Step 1: `vagrant ssh vm1` to get ssh connection for VM1.
 - Step 2: `ping 192.168.57.4`.
-- Step 3: Follow same from VM2.
+- Step 3: Follow same from vm2, vm3, vm4.
 
 <b>This is for Lab3.</b>
