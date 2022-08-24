@@ -5,7 +5,7 @@ It is mostly use to test our operation locally before uploading in the server.
 
 It uses a Virtualbox.
 
-So before using it you must `virtualBox` in your system.
+So before using it you must have `virtualBox` in your system.
 
 Visit this [Link](https://www.vagrantup.com/downloads) to install the vagrant in your machine.
 
