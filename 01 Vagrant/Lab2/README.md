@@ -11,7 +11,7 @@ As we can see, we are using the same ubuntu image that we have used in [Lab1]().
 
 - `config.vm.synced_folder "../Synced_folder", "/home/vagrant/Synced_folder"`: This is used to include any folder to be synced inside the vagrant box.
 
-<b>Remember:</b> There is only one box in this vagrantfile so the folder will only  synced with "box1". But in case of having multiple box in one single Vagrantfile, the folder will be synced with everybox.
+<b>Remember:</b> There is only one box in this Vagrantfile so the folder will only  synced with "box1". But in case of having multiple box in one single Vagrantfile, the folder will be synced with everybox.
 
 - `config.vm.provision "file", source: "./Lab2_FileToCopy.txt", destination: "/home/vagrant/Copy_folder"`: This is used to copy any file outside the synced folder.
 
@@ -35,18 +35,21 @@ So, It is very good habit to run `vagrant validate` command before running `vagr
 
 If everything is correct. It gives message saying `Vagrantfile validated successfully`.
 
-### Running Vagrant 
+### Running Vagrantfile 
 Since there are no error with the code. We can finally run `vagrant up` command to start our task.
 
 Remember it can take some time to complete task.
 
 ### Accessing Box using ssh
-Since we have only one box in our vagrantfile, we can simply use `vagrant ssh` command to login through ssh.
+Since we have only one box in our Vagrantfile, we can simply use `vagrant ssh` command to login through ssh.
 
 After logging through ssh, we get shell of the box. And we can do anything we like.
 
 ### Extra Knowledge
 We can find `/vagrant` folder inside that `box1`. This `/vagrant` folder is totally synced with the folder in which Vagrantfile is located.
+
+### Destroy box
+We can use `vagrant destroy` to destroy and delete all the vm using the same Vagrantfile.
 
 
 <b>This is it for Lab1. </b>
