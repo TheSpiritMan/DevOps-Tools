@@ -19,9 +19,9 @@ In Ansible, there are two categories of computers:
  - Follow following command to install ansible in your Ubuntu distro.
 ```
 sudo apt update
-sudo apt install software-properties-common
+sudo apt install software-properties-common -y
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible -y
  ```
 
  - If you are using another distro. Visit this [Link](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html) to follow official ansible documentaion.
@@ -33,3 +33,15 @@ sudo apt install ansible
 - SSH Keygen
 - Multiple VMs
 - VirtualBox
+
+
+### Vagranfile
+- We will use same `Vagranfile` in all Ansible Lab.
+
+### Project Case
+- There is one `ansible-control` instance to manage all the `slave nodes`.
+- There is one database instance.
+- There are two web instances where same web application will be hosted.
+- There is one loadbalancer(like nginx) to balance load in different web instance.
+
+This is a final project in this Ansible practice. So we will do this project in multiple lab using different steps.

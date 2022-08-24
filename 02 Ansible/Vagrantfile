@@ -1,0 +1,51 @@
+Vagrant.configure("2") do |config|
+    #Using List
+    servers=[
+        {
+            :hostname => "ansible-control",
+            :box => "ubuntu/xenial64",
+            :ip => "192.168.57.2",
+            :ssh_port => "2201"
+        },
+        {
+            :hostname => "db01",
+            :box => "ubuntu/xenial64",
+            :ip => "192.168.57.3",
+            :ssh_port => "2202"
+        },
+        {
+            :hostname => "web01",
+            :box => "ubuntu/xenial64",
+            :ip => "192.168.57.4",
+            :ssh_port => "2203"
+        },
+        {
+            :hostname => "web02",
+            :box => "ubuntu/xenial64",
+            :ip => "192.168.57.5",
+            :ssh_port => "2204"
+        },
+        {
+            :hostname => "loadbalancer",
+            :box => "ubuntu/xenial64",
+            :ip => "192.168.57.6",
+            :ssh_port => "2205"
+        }
+    ]
+
+    #Using each loop
+    servers.each do |machine|
+        config.vm.define machine[:hostname] do |node|
+            node.vm.box = machine[:box]
+            node.vm.hostname = machine[:hostname]
+
+            node.vm.network :private_network, ip: machine[:ip]
+            node.vm.network "forwarded_port", guest: 22, host: machine[:ssh_port], id: "ssh"
+
+            node.vm.provider :virtualbox do |vb|
+                vb.name = machine[:hostname]
+                vb.memory = "1024"
+            end
+        end
+    end
+end

@@ -1,0 +1,12 @@
+[control]
+ansible-control
+
+[proxy]
+loadbalancer
+
+[webservers]
+web01
+web02
+
+[database]
+db01
