@@ -45,6 +45,8 @@ Since we have only one box in our Vagrantfile, we can simply use `vagrant ssh` c
 
 After logging through ssh, we get shell of the box. And we can do anything we like.
 
+We can verify that our Synced_folder and copy files are located inside the vm.
+
 ### Extra Knowledge
 We can find `/vagrant` folder inside that `box1`. This `/vagrant` folder is totally synced with the folder in which Vagrantfile is located.
 
