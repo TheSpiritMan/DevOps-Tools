@@ -51,5 +51,7 @@ This is a final project in this Ansible practice. So we will do this project in 
 - We will use same `Vagrantfile` in all Ansible Lab.
 - `Hostmanager` plugin is used in Vagrantfile which will automatically update the `/etc/hosts` file in all the VMs including our host machine.
 - Command to install Hostmanager plugin: 
-```vagrant plugin install vagrant-hostmanager ```
+```
+vagrant plugin install vagrant-hostmanager
+```
 - To know more about hostmanager plugin. Visit this [link](https://www.rubydoc.info/gems/vagrant-hostmanager/1.2.3).
