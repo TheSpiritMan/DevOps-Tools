@@ -2,31 +2,31 @@
 This Lab is same as [Lab2](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab2%20-%20Playbooks%20and%20Templates) but in a more organized ways.
 
 This Lab is divided into 4 sub-folders. They are:
-- [handlers]()
-- [playbooks]()
-- [tasks]()
-- [templates]()
+- [handlers](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/handlers)
+- [playbooks](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/playbooks)
+- [tasks](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/tasks)
+- [templates](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/templates)
 
 ### handlers
 This folder contains all the handlers used in playbook.
-In this case we have only one handler i.e. [restart_apache2.yml]().
+In this case we have only one handler i.e. [restart_apache2.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/handlers/restart_apache2.yml).
 
 ### playbooks
 This folder contains all the playbook. In this case, we have 2 playbook. They are
-- [install_playbook.yml]()
-- [remove_playbook.yml]()
+- [install_playbook.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/playbooks/install_playbook.yml)
+- [remove_playbook.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/playbooks/remove_playbook.yml)
 
 ### tasks
 This folder contains all the task used in all the playbooks. For now, there are 4 tasks. They are:
-- [install_apache2.yml]()
-- [install_mysql-server.yml]()
-- [remove_apache2.yml]()
-- [remove_mysql-server.yml]()
+- [install_apache2.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/tasks/install_apache2.yml)
+- [install_mysql-server.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/tasks/install_mysql-server.yml)
+- [remove_apache2.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/tasks/remove_apache2.yml)
+- [remove_mysql-server.yml](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/tasks/remove_mysql-server.yml)
 
 ### templates
 This folder contains all the templates file. For now, there are 2 templates. They are:
-- [index.html.j2]()
-- [ports.conf.j2]()  
+- [index.html.j2](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/templates/index.html.j2)
+- [ports.conf.j2](https://github.com/TheSpiritMan/DevOps-Practice/blob/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks/templates/ports.conf.j2)  
 
 ## Access ansible-control
 ```
