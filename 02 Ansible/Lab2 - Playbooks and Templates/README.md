@@ -5,7 +5,7 @@
 - So Ansible makes a use of playbook which simply is a [YAML]() script containing multiple tasks.
 - Playbook for this Lab2 can be found in [playbook.yml]() file.
 - In `playbook.yml` file, there are 2 hosts: `webservers` and `databases`.
-- Everything can be easily understood except `template` ,`notify` and `handlers`. 
+- Everything can be easily understood except `template`,`notify` and `handlers`. 
 
 ### Template
 - Template such as Ninja which file extension is `.j2` can be used for a ansible task.
