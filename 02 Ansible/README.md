@@ -34,10 +34,6 @@ sudo apt install ansible -y
 - Multiple VMs
 - VirtualBox
 
-
-### Vagranfile
-- We will use same `Vagranfile` in all Ansible Lab.
-
 ### Project Case
 - There is one `ansible-control` instance to manage all the `slave nodes`.
 - There is one database instance.
@@ -45,3 +41,14 @@ sudo apt install ansible -y
 - There is one loadbalancer(like nginx) to balance load in different web instance.
 
 This is a final project in this Ansible practice. So we will do this project in multiple lab using different steps.
+
+
+<b>Note</b>
+
+ The `Vagrantfile` and `inventory` file for all the Labs are same. So they are available in `Lab2` main directory.
+
+ ### Vagranfile
+- We will use same `Vagranfile` in all Ansible Lab.
+- `Hostmanager` plugin is used in Vagrantfile which will automatically update the `/etc/hosts` file in all the VMs including our host machine.
+- Command to install Hostmanager plugin: `$ vagrant plugin install vagrant-hostmanager`
+- To know more about hostmanager plugin. Visit this [link](https://www.rubydoc.info/gems/vagrant-hostmanager/1.2.3).

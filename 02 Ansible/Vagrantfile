@@ -1,33 +1,37 @@
 Vagrant.configure("2") do |config|
+
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+
     #Using List
     servers=[
         {
             :hostname => "ansible-control",
-            :box => "ubuntu/xenial64",
+            :box => "bento/ubuntu-18.04",
             :ip => "192.168.57.2",
             :ssh_port => "2201"
         },
         {
             :hostname => "db01",
-            :box => "ubuntu/xenial64",
+            :box => "bento/ubuntu-18.04",
             :ip => "192.168.57.3",
             :ssh_port => "2202"
         },
         {
             :hostname => "web01",
-            :box => "ubuntu/xenial64",
+            :box => "bento/ubuntu-18.04",
             :ip => "192.168.57.4",
             :ssh_port => "2203"
         },
         {
             :hostname => "web02",
-            :box => "ubuntu/xenial64",
+            :box => "bento/ubuntu-18.04",
             :ip => "192.168.57.5",
             :ssh_port => "2204"
         },
         {
             :hostname => "loadbalancer",
-            :box => "ubuntu/xenial64",
+            :box => "bento/ubuntu-18.04",
             :ip => "192.168.57.6",
             :ssh_port => "2205"
         }
