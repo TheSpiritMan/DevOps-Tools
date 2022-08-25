@@ -144,12 +144,22 @@ ansible webservers -i inventory --become -m apt -a "name=apache2 state=present"
 
 Output:
 ```
+web01 | SUCCESS => {
+    "cache_update_time": 1661430085, 
+    "cache_updated": false, 
+    "changed": false
+}
+web02 | SUCCESS => {
+    "cache_update_time": 1661430090, 
+    "cache_updated": false, 
+    "changed": false
+}
 
 ```
 
 Example 3:
 ```
-ansible databases -i inventory--become -mapt -a "name=mysql-server state=present"
+ansible databases -i inventory --become -m apt -a "name=mysql-server state=present"
 ```
 - `name=mysql-server state=present` is for `apt install mysql-server`
 - `databases` is for db01 VM instances.
@@ -157,4 +167,12 @@ ansible databases -i inventory--become -mapt -a "name=mysql-server state=present
 
 Output:
 ```
+db01 | SUCCESS => {
+    "cache_update_time": 1661430097, 
+    "cache_updated": false, 
+    "changed": false
+}
 ```
+
+
+<h1>This is for Lab1. </h1>
