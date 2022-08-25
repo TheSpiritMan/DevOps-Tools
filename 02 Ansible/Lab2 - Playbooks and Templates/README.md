@@ -49,11 +49,11 @@ ansible-playbook -i ../inventory  -K playbooks/install_playbook.yml
 
 Output:
 
-<img src="../../Pictures/02_Ansible_Lab2-2.png" alt= "install playbook" style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="../../Pictures/02_Ansible_Lab2-1.png" alt= "install playbook" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 
 ### Confirm Apache2 is running our html file.
-- In `playbook.yml` file, we have a task to copy the `index.html` file in `/var/www/html` location.
+- In `install_playbook.yml` file, we have a task to copy the `index.html` file in `/var/www/html` location.
 
 ### Command to check:
 - For web01:
