@@ -9,7 +9,7 @@ As we can see, we are using the same ubuntu image that we have used in [Lab1](ht
 - `config.vm.box = "ubuntu/xenial64"`: This command assigned the image name we will using.
 - `config.vm.hostname = "box1"`: This command is used to give custom name to the box. This will help us to manage the box more easily.
 - `config.vm.network "private_network", ip: "192.168.57.2"`: This is used to assigned private network to our box. The IP address here must be available in our `Virtualabox` network.
-<img src="../Pictures/Lab2-1.png" alt= "VirtualBox Network List" style="display: inline-block; margin: 0 auto; max-width: 300px">
+<img src="../../Pictures/01_Vagrant_Lab2-1.png" alt= "VirtualBox Network List" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 - `config.vm.synced_folder "../Synced_folder", "/home/vagrant/Synced_folder"`: This is used to include any folder to be synced inside the vagrant box.
 

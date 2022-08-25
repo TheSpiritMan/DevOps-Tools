@@ -2,14 +2,14 @@
 
 ## Playbook
 - Using `ad-hoc` command for a small task is easy. But using it for multiple tasks is not easy.
-- So Ansible makes a use of playbook which simply is a [YAML]() script containing multiple tasks.
-- Playbook for this Lab2 can be found in [playbook.yml]() file.
-- In `playbook.yml` file, there are 2 hosts: `webservers` and `databases`.
-- Everything can be easily understood except `template`,`notify` and `handlers`. 
+- So Ansible makes a use of playbook which simply is a [YAML](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started) script containing multiple tasks.
+- Playbook for this Lab2 can be found in [playbooks](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab2%20-%20Playbooks%20and%20Templates/playbooks) folder.
+- In playbook files, there are 2 hosts: `webservers` and `databases`.
+- Everything can be easily understood except `template`, `notify` and `handlers`. 
 
 ### Template
 - Template such as Ninja which file extension is `.j2` can be used for a ansible task.
-- Two templates are used in this Lab. They can be found inside [templates]() folder.
+- Two templates are used in this Lab. They can be found inside [templates](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab2%20-%20Playbooks%20and%20Templates/templates) folder.
 - Template includes two key-value pairs. They are `src` for source and `dest` for destination.
 
 ### Notify
@@ -39,60 +39,20 @@ vagrant ssh anible-control
 cd /vagrant/Lab2\ -\ Playbooks\ and\ Templates/
 ```
 
-## Run Playbook
-To run this lab2 successfully. Use following command:
+## Example 1: Install apache2 and mysql-server
+Use following command:
 ```
-ansible-playbook -i ../inventory  -K playbook.yml
+ansible-playbook -i ../inventory  -K playbooks/install_playbook.yml
 ```
 - `../inventory` is because `inventory` file is located 1 directory back.
-- `playbook.yml` is playbook file name.
+- `install_playbook.yml` is playbook file.
 
 Output:
-```
-PLAY [webservers] ********************************************************************************************************************
 
-TASK [Gathering Facts] ***************************************************************************************************************
-ok: [web01]
-ok: [web02]
+<img src="../../Pictures/02_Ansible_Lab2-2.png" alt= "install playbook" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
-TASK [ensure apache2 is at latest version] *******************************************************************************************
-changed: [web01]
-changed: [web02]
 
-TASK [write the apache2 ports.conf config file] **************************************************************************************
-ok: [web02]
-ok: [web01]
-
-TASK [write a basic index.html file] *************************************************************************************************
-changed: [web01]
-changed: [web02]                                                                                                                      
-                                                                                                                                      
-TASK [ensure apache2 is running] *****************************************************************************************************
-ok: [web01]
-ok: [web02]
-
-RUNNING HANDLER [restart apache2] ****************************************************************************************************
-changed: [web01]
-changed: [web02]
-
-PLAY [databases] *********************************************************************************************************************
-
-TASK [Gathering Facts] ***************************************************************************************************************
-ok: [db01]
-
-TASK [install mysql-server latest version] *******************************************************************************************
-changed: [db01]
-
-TASK [ensure mysql-server is running] ************************************************************************************************
-ok: [db01]
-
-PLAY RECAP ***************************************************************************************************************************
-db01                       : ok=3    changed=1    unreachable=0    failed=0   
-web01                      : ok=6    changed=3    unreachable=0    failed=0   
-web02                      : ok=6    changed=3    unreachable=0    failed=0
-```
-
-## Confirm Apache2 is running our html file.
+### Confirm Apache2 is running our html file.
 - In `playbook.yml` file, we have a task to copy the `index.html` file in `/var/www/html` location.
 
 ### Command to check:
@@ -107,6 +67,17 @@ Output:
 </html>
 ```
 - Do same for `web02`.
+
+## Example 2: Remove apache2 and mysql-server
+Use following command:
+```
+ansible-playbook -i ../inventory -K playbooks/remove_playbook.yml
+```
+- `remove_playbook.yml` is playbook file.
+
+Output:
+
+<img src="../../Pictures/02_Ansible_Lab2-2.png" alt= "remove playbook" style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 
 
