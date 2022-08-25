@@ -169,10 +169,36 @@ Output:
 ```
 db01 | SUCCESS => {
     "cache_update_time": 1661430097, 
-    "cache_updated": false, 
-    "changed": false
+    "cache_updated": true, 
+    "changed": true
 }
 ```
 
+Example 4:
+```
+ansible webservers -i inventory --become -m apt -a "name=apache2 state=absent"
+```
+- `"name=apache2 state=absent"` is for removing apache2 from machines.
 
+Output:
+```
+web01 | SUCCESS => {
+    "changed": true
+}
+web02 | SUCCESS => {
+    "changed": true
+}
+```
+
+Example 5:
+```
+ansible databases -i inventory --become -m apt -a "name=mysql-server state=absent"
+```
+- `"name=mysql-server state=absent"` is for removing mysql-server from machines.
+Output:
+```
+db01 | SUCCESS => {
+    "changed": true
+}
+```
 <h1>This is for Lab1. </h1>
