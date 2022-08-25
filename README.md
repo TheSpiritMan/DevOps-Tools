@@ -10,10 +10,10 @@ So in this repo, I will try to contain all the tools and skill that we need to l
 
 
 
-### 01 Vagrant
+## 01 Vagrant
 We will start this DevOps Practice from vagrant.
 Start this Lab from [01 Vagrant](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/01%20Vagrant).
 
 
-### 02 Ansible
+## 02 Ansible
 Continue this Session in [02 Ansible](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible).
