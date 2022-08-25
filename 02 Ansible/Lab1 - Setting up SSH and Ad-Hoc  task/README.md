@@ -95,4 +95,66 @@ db01
 ansible-control | SUCCESS | rc=0 >>
 ansible-control
 ```
-- This shows `ansible-control` instance can access for all other instances.
+- This shows `ansible-control` instance can access all other instances.
+
+
+
+### Install services using apt module
+The official documentation of the apt module can be found in this [link](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html).
+
+Example 1:
+```
+ansible slave -i inventory --become -m apt -a "update_cache=yes"
+```
+- `update_cache=yes` is for `apt update`.
+- `slave` is group of all the `managed node` instances.
+- `--become` is for `sudo` privillege task.
+
+Output:
+```
+db01 | SUCCESS => {
+    "cache_update_time": 1661430097, 
+    "cache_updated": true, 
+    "changed": true
+}
+web01 | SUCCESS => {
+    "cache_update_time": 1661430085, 
+    "cache_updated": true, 
+    "changed": true
+}
+web02 | SUCCESS => {
+    "cache_update_time": 1661430090, 
+    "cache_updated": true, 
+    "changed": true
+}
+loadbalancer | SUCCESS => {
+    "cache_update_time": 1661430048, 
+    "cache_updated": true, 
+    "changed": true
+}
+```
+
+Example 2:
+```
+ansible webservers -i inventory --become -m apt -a "name=apache2 state=present"
+```
+- `name=apache2 state=present` is for `apt install apache2`.
+- `webservers` is a group for `web01` and `web02` VM instances.
+- `--become` is for `sudo` privillege task.
+
+Output:
+```
+
+```
+
+Example 3:
+```
+ansible databases -i inventory--become -mapt -a "name=mysql-server state=present"
+```
+- `name=mysql-server state=present` is for `apt install mysql-server`
+- `databases` is for db01 VM instances.
+- `--become` is for sudo privillege task.
+
+Output:
+```
+```

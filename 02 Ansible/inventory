@@ -1,5 +1,10 @@
-[control]
+[master]
 ansible-control
+
+[slave:children]
+proxy
+webservers
+database
 
 [proxy]
 loadbalancer
@@ -8,10 +13,6 @@ loadbalancer
 web01
 web02
 
-[database]
+[databases]
 db01
 
-[webstack:children]
-proxy
-webservers
-database
