@@ -1,0 +1,9 @@
+- hosts: webservers
+  become: true
+  tasks:
+    - import_tasks: ../tasks/remove_apache2.yml
+
+- hosts: databases
+  become: true
+  tasks:
+    - import_tasks: ../tasks/remove_mysql-server.yml

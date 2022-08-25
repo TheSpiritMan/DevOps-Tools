@@ -1,0 +1,16 @@
+- hosts: webservers
+  become: true
+  vars:
+    http_port: 8000
+    https_port: 4443
+    html_welcome_msg: "Hello World!"
+  tasks:
+    - import_tasks: ../tasks/install_apache2.yml
+  
+  handlers:
+    - import_tasks: ../handlers/restart_apache2.yml
+
+- hosts: databases
+  become: true
+  tasks:
+    - import_tasks: ../tasks/install_mysql-server.yml
