@@ -92,5 +92,22 @@ web01                      : ok=6    changed=3    unreachable=0    failed=0
 web02                      : ok=6    changed=3    unreachable=0    failed=0
 ```
 
+## Confirm Apache2 is running our html file.
+- In `playbook.yml` file, we have a task to copy the `index.html` file in `/var/www/html` location.
+
+### Command to check:
+- For web01:
+```
+curl web01:8000
+```
+Output:
+```
+<html>
+    <h1> Hello World! </h1>
+</html>
+```
+- Do same for `web02`.
+
+
 
 <h1>This is for Lab2- Playbook and Templates.</h1>
