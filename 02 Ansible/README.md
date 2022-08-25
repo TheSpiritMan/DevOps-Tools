@@ -7,7 +7,7 @@
 In Ansible, there are two categories of computers: 
 `The Control node` and `Managed nodes`.
 
- - The control node is a computer that rubs Ansible.
+ - The control node is a computer that runs Ansible.
  - Ansible is known for it's agentless service which means ansible must not be   installed not in a slave node(managed node).
  - Ansible uses SSH key to authenticate.
  - Ansible makes a use of Playbook which is written in YAML script.
@@ -45,10 +45,11 @@ This is a final project in this Ansible practice. So we will do this project in 
 
 <b>Note</b>
 
- The `Vagrantfile` and `inventory` file for all the Labs are same. So they are available in `Lab2` main directory.
+ The `Vagrantfile` and `inventory` file for all the Labs are same. So they are available in [02 Ansible](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible) main directory.
 
- ### Vagranfile
-- We will use same `Vagranfile` in all Ansible Lab.
+ ### Vagrantfile
+- We will use same `Vagrantfile` in all Ansible Lab.
 - `Hostmanager` plugin is used in Vagrantfile which will automatically update the `/etc/hosts` file in all the VMs including our host machine.
-- Command to install Hostmanager plugin: `$ vagrant plugin install vagrant-hostmanager`
+- Command to install Hostmanager plugin: 
+```vagrant plugin install vagrant-hostmanager ```
 - To know more about hostmanager plugin. Visit this [link](https://www.rubydoc.info/gems/vagrant-hostmanager/1.2.3).
