@@ -1,0 +1,3 @@
+---
+# handlers file for roles/nginx
+- include: restart_nginx.yml

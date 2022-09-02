@@ -1,0 +1,11 @@
+- name: remove nginx
+  apt:
+    name: nginx
+    state: absent
+  tags: removing
+
+- name: remove mysite
+  file:
+    path: /etc/nginx/sites-enabled/mysite
+    state: absent
+  tags: removing

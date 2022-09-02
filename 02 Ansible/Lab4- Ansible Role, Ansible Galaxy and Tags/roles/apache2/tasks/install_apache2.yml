@@ -1,0 +1,25 @@
+- name: install apache2
+  apt:
+    name: apache2
+    state: latest
+  tags: installation
+
+- name: write apache2 ports.conf file
+  template:
+    src: ../templates/ports.conf.j2
+    dest: /etc/apache2/ports.conf
+  tags: installation, configuration
+
+- name: write basic html file
+  template:
+    src: ../templates/index.html.j2
+    dest: /var/www/html/index.html
+  tags: installation
+  notify: 
+  - restart apache2
+
+- name: ensure apache2 is running
+  service:
+    name: apache2
+    state: started
+  tags: installation

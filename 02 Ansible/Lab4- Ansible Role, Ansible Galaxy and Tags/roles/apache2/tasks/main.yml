@@ -1,0 +1,4 @@
+---
+# tasks file for roles/apache2
+- include: install_apache2.yml
+- include: remove_apache2.yml

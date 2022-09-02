@@ -1,0 +1,5 @@
+- name: remove mysql-server
+  apt:
+    name: mysql-server
+    state: absent
+  tags: removing

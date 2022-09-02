@@ -1,0 +1,17 @@
+- name: remove apache2
+  apt:
+    name: apache2
+    state: absent
+  tags: removing
+
+- name: remove ports.conf
+  file:
+    path: /etc/apache2/ports.conf
+    state: absent
+  tags: removing
+
+- name: remove index file
+  file:
+    path: /var/www/html/index.html
+    state: absent
+  tags: removing

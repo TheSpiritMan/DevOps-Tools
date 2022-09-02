@@ -1,0 +1,4 @@
+---
+# tasks file for roles/database
+- include: install_mysql-server.yml
+- include: remove_mysql-server.yml

@@ -4,7 +4,7 @@ ansible-control
 [slave:children]
 proxy
 webservers
-database
+databases
 
 [proxy]
 loadbalancer
