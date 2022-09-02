@@ -1,5 +1,5 @@
 # Lab4- Ansible Roles, Ansible Galaxy and Tags
-This Lab is upgraded version of [Lab3](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks) with the help of ansible roles.
+This Lab is upgraded version of [Lab3](https://github.com/TheSpiritMan/DevOps-Practice/tree/main/02%20Ansible/Lab3%20-%20Reusing%20Playbooks) with the help of ansible roles, ansible-galaxy and tags.
 
 ## Ansible Roles
 Roles let you automatically load related vars, files, tasks, handlers, and other Ansible artifacts based on a known file structure. After you group your content in roles, you can easily reuse them and share them with other users.
