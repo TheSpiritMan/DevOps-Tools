@@ -154,7 +154,7 @@ web01                      : ok=6    changed=3    unreachable=0    failed=0
 web02                      : ok=6    changed=2    unreachable=0    failed=0   
 ```
 
-### Visit http://loadbalancer
+### Check loadbalancer
 Command:
 ```
 curl http://loadbalancer
@@ -224,4 +224,4 @@ web02                      : ok=4    changed=3    unreachable=0    failed=0
 
 
 
-This much is for Lab 4.
+<h1>This much is for Lab 4.</h1>
