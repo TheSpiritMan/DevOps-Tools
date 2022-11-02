@@ -207,3 +207,21 @@
     - Allows the default shell used for the shell form of commands to be overridden.
     - Each `SHELL` instruction overrides all previous `SHELL` instructions, and affects all subsequent instructions.
     - Allows an alternate shell be used such as zsh, csh, tcsh, powershell, and others.
+
+
+## Sample of Multi-Stage Dockerfile
+    ```
+    # stage 1
+    FROM node:latest as node
+    WORKDIR /app
+    COPY . .
+    RUN npm install
+    RUN npm run build --prod
+
+    # stage 2
+    FROM ubuntu/nginx
+    COPY --from=node /app/dist/simplilearn-dev-ops-project1-angular /var/www/html
+    ```
+
+- The above Dockerfile is from the Repository of my own. The Link to the project can be found [here](https://github.com/TheSpiritMan/Simplilearn-DevOps-Project1-Angular).
+- This project comes as Task 2 of Lab5.
