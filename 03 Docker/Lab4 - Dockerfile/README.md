@@ -81,8 +81,8 @@
 - <b>`ADD:`</b>
 
     Usage:
-    - `ADD` <src> [<src> ...] <dest>
-    - `ADD` ["<src>", ... "<dest>"] (this form is required for paths containing whitespace)
+    - `ADD <src> [<src> ...] <dest>`
+    - `ADD ["<src>", ... "<dest>"]` (this form is required for paths containing whitespace)
 
     Description:
     - Copies new files, directories, or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
@@ -95,8 +95,8 @@
 - <b>`COPY:`</b>
 
     Usage:
-    - `COPY` <src> [<src> ...] <dest>
-    - `COPY` ["<src>", ... "<dest>"] (this form is required for paths containing whitespace)
+    - `COPY <src> [<src> ...] <dest>`
+    - `COPY ["<src>", ... "<dest>"]` (this form is required for paths containing whitespace)
 
     Description:
     - Copies new files or directories from <src> and adds them to the filesystem of the image at the path <dest>.
@@ -224,4 +224,4 @@
     ```
 
 - The above Dockerfile is from the Repository of my own. The Link to the project can be found [here](https://github.com/TheSpiritMan/Simplilearn-DevOps-Project1-Angular).
-- This project comes as Task 2 of Lab5.
+- This project comes as Task 2 of Lab5.  
