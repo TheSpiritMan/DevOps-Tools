@@ -47,4 +47,4 @@ The Docker `Software as a Service (SAAS)` offers three components. They are:
     - Docker manages swarms using the `Raft consensus` algorithm.
 
 - <b>Docker Volume</b>
-    - `Docker Volume` facilitates the independent persistence of data, allowing data to remain even after the container is deleted or re-created.
+    - `Docker Volume` facilitates the independent persistence of data, allowing data to remain even after the container is deleted or re-created. 
