@@ -1,0 +1,11 @@
+version: "3"
+services:
+  first-service:
+    image: ubuntu:latest
+    container_name: ubuntu
+    tty: true
+    
+  second-service:
+    image: kalilinux/kali-rolling 
+    container_name: kali
+    tty: true

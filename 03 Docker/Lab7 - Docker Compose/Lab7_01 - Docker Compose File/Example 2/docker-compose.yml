@@ -1,0 +1,18 @@
+version: "3"
+services:
+  custom_app_1:
+    build: https://github.com/TheSpiritMan/Simplilearn-DevOps-Project1-Angular.git#main
+    image: simplilearn-p1-image
+    ports:
+      - "8080:80"
+    container_name: simplilearn
+    tty: true
+
+  custom_app_2:
+    build: https://github.com/TheSpiritMan/TelephoneDelayCallSystem.git#main
+    image: telephonedelaycallsystem
+    container_name: telephone
+    tty: true
+
+    
+  

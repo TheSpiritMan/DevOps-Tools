@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mysql_docker:
+    image: mysql
+    container_name: mysql_docker
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: FirstCRUDApp
+    volumes:
+      - users_data.sql:/docker-entrypoint-initdb.d
+    tty: true
+
+
+
+  custom_app:
+    build: https://github.com/TheSpiritMan/FirstCRUDApplication.git#main
+    image: thespiritman/firstcrudapplication
+    container_name: firstcruapp
+    ports:
+      - "5555:5555"
+    tty: true
+
+
+volumes:
+  users_data.sql: {}
