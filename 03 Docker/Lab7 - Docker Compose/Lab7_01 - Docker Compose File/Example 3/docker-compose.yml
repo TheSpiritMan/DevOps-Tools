@@ -10,19 +10,24 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_DATABASE: FirstCRUDApp
     volumes:
-      - users_data.sql:/docker-entrypoint-initdb.d
+      - ./init_data:/docker-entrypoint-initdb.d
+    restart: always
     tty: true
 
 
 
   custom_app:
-    build: https://github.com/TheSpiritMan/FirstCRUDApplication.git#main
+    # build: https://github.com/TheSpiritMan/FirstCRUDApplication.git#main
     image: thespiritman/firstcrudapplication
-    container_name: firstcruapp
+    container_name: firstcrudapp
     ports:
       - "5555:5555"
+    depends_on:
+      - mysql_docker
     tty: true
+    restart: always
+
 
 
 volumes:
-  users_data.sql: {}
+  init_data: 

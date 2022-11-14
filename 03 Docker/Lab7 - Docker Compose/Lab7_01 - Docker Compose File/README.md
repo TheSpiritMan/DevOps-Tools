@@ -158,3 +158,68 @@ There are 3 examples where different case study are shown.
             ```
             docker-compose down
             ```  
+
+- <b>`Example 3:`</b>
+  ```
+  version: "3"
+  services:
+    mysql_docker:
+      image: mysql
+      container_name: mysql_docker
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_PASSWORD: root
+        MYSQL_DATABASE: FirstCRUDApp
+      volumes:
+        - ./init_data:/docker-entrypoint-initdb.d
+      restart: always
+      tty: true
+
+    custom_app:
+      # build: https://github.com/TheSpiritMan/FirstCRUDApplication.git#main
+      # build: .
+      image: thespiritman/firstcrudapplication
+      container_name: firstcrudapp
+      ports:
+        - "5555:5555"
+      depends_on:
+        - mysql_docker
+      tty: true
+      restart: always
+
+  volumes:
+    init_data: 
+  ```
+
+- In `Example 3`, we can see that there are 2 micro-services. They are: `mysql_docker` and  `custome_app`.
+- This `docker-compose` file is from one of my many project. [Visit this link](https://github.com/TheSpiritMan/FirstCRUDApplication) to know more about this project.
+- `Custom_app` depends on `mysql_docker`. So `custom_app` will start once `mysql_docker` is fully ready to perform our task.
+- The tag `restart: always` will restart the container on failure.
+- `Volume` is specified to dump sql file into the container on startup.
+- Command:
+  ```
+  docker-compose up -d
+  ```
+- Since all the image are pulled from the public registry, strarting the container should not take long time.
+- But to set custom <b>user</b> and <b>password</b> inside `mysql_docker` and to dump the sql file is the Database will take some times. So the application will only be available after completing those task.
+
+- Once all tasks are done, visit the link [http://localhost:5555](http://localhost:5555).
+
+  <img src=../../../Assets/03_Docker_Lab7_02-5.png>
+
+- Click on <b>Manage User</b>
+
+  <img src=../../../Assets/03_Docker_Lab7_02-6.png>
+- Then you can add and delete a user.
+- All these data are fetched from `mysql_docker` service.
+- Command to stop and delete all the services:
+  ```
+  docker-compose down
+  ```
+
+
+
+
+<h1><b>End of Lab for Docker Compose.</b></h1>
