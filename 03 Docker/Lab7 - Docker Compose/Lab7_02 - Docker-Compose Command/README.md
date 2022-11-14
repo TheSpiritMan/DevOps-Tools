@@ -1,2 +1,0 @@
-# <b>LAB02: Docker Compose Command</b>
-In previous lab, we can see the command available in `docker-compose`. So in this lab, we will understand the command which are frequently used in `docker-compose`.
