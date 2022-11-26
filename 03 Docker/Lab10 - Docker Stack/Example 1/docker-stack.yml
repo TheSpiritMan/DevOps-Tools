@@ -1,0 +1,22 @@
+version: "3"
+services:
+  ubuntu-service:
+    image: ubuntu:latest
+    deploy:
+      replicas: 3
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure
+    tty: true
+    
+  kali-service:
+    image: kalilinux/kali-rolling 
+    deploy:
+      replicas: 3
+      placement:
+       constraints: [node.role == worker]
+      restart_policy:
+        condition: on-failure
+
+    tty: true
