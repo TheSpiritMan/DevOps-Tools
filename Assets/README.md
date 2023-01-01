@@ -63,7 +63,6 @@ It must create the `apache2` role.
 Now create roles for `nginx` and `database` by yourself.
 
 <img src="../../Assets/02_Ansible_Lab4-nginx_role.png">
-
 <img src="../../Assets/02_Ansible_Lab4-database_role.png">
 
 

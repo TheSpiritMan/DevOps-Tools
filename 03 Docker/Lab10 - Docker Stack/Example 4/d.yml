@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  mysql_docker:
+    image: mysql
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: FirstCRUDApp
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
+      interval: 5s
+      timeout: 5s
+      retries: 55
+    volumes:
+      - ./init_data:/docker-entrypoint-initdb.d
+
+
+  custom_app:
+    image: thespiritman/firstcrudapplication
+    deploy:
+      replicas: 5
+      placement:
+        constraints: [node.role == worker]
+      restart_policy:
+        condition: on-failure
+    # depends_on:
+    #   - mysql_docker:
+    #       condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5555/"]
+      interval: 60s
+      timeout: 5s
+      retries: 55
+    ports:
+      - 5555:5555
+
+volumes:
+  init_data: 
