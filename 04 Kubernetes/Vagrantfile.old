@@ -1,0 +1,46 @@
+Vagrant.configure("2") do |config|
+
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+
+    #Using List
+    servers=[
+        {
+            :hostname => "kmaster",
+            :box => "ubuntu/focal64",
+            :ip => "192.168.57.20",
+            :ssh_port => "2201",
+            :mem => "4000",
+        },
+        {
+            :hostname => "knode1",
+            :box => "ubuntu/focal64",
+            :ip => "192.168.57.21",
+            :ssh_port => "2202",
+            :mem => "1500"
+        },
+        {
+            :hostname => "knode2",
+            :box => "ubuntu/focal64",
+            :ip => "192.168.57.22",
+            :ssh_port => "2203",
+            :mem => "1500"
+        }
+    ]
+
+    #Using each loop
+    servers.each do |machine|
+        config.vm.define machine[:hostname] do |node|
+            node.vm.box = machine[:box]
+            node.vm.hostname = machine[:hostname]
+          #  node.vm.provision :shell, path: "script/bootstrap.sh"
+            node.vm.network :private_network, ip: machine[:ip]
+            node.vm.network "forwarded_port", guest: 22, host: machine[:ssh_port], id: "ssh"
+
+            node.vm.provider :virtualbox do |vb|
+                vb.name = machine[:hostname]
+                vb.memory = machine[:mem]
+            end
+        end
+    end
+end

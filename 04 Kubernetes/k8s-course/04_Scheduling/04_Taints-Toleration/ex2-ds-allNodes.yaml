@@ -1,0 +1,26 @@
+# This yaml file will create a pod in all nodes including master node.
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: taint-2-ds
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      # Make sure pod gets scheduled on all nodes.
+      tolerations:
+      - operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: nginx
+        image: nginx
+        ports: 
+        - containerPort: 80

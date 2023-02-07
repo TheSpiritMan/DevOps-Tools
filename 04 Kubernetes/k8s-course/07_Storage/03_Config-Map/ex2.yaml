@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example2-configmap
+data:
+  # Configuration values can be set as key-value pair
+  database: mongodb
+  database_url: mongodb://localhost:27017
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cm-env-var-pod
+spec:
+  containers:
+  - name: env-var-cm
+    image: nginx
+    envFrom:
+    - configMapRef:
+        name: example2-configmap

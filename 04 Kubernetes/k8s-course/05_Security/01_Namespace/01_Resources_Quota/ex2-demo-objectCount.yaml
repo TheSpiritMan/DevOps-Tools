@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo
+
+---
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: demo-rq
+  namespace: demo
+spec:
+  hard:
+    pods: 4
+    replicationcontrollers: 2
+    services: 5
+    count/deployments.apps: 2
+    count/replicasets.apps: 2

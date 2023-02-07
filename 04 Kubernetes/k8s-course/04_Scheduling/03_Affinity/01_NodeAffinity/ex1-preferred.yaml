@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: affinity-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pref
+  template:
+    metadata:
+      labels:
+        app: pref
+    spec:
+      affinity:
+        nodeAffinity:
+        # podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 50
+            preference:
+              matchExpressions:
+              - key: zone      ## assign this labels to node manually
+                operator: In
+                values:
+                - east
+          - weight: 50
+            preference:
+              matchExpressions:
+              - key: type     ## assign this labels to node manually
+                operator: In
+                values:
+                - web
+      containers:
+      - image: busybox
+        name: main
+        args: 
+        - sleep
+        - "100"    
+      

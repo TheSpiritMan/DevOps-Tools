@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: affinity-deploy2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pref
+  template:
+    metadata:
+      labels:
+        app: pref
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: zone      ## assign this labels to node manually
+                operator: In
+                values:
+                - east
+            - matchExpressions:
+              - key: type     ## assign this labels to node manually
+                operator: In
+                values:
+                - web
+      containers:
+      - image: busybox
+        name: main
+        args: 
+        - sleep
+        - "100"    
+      

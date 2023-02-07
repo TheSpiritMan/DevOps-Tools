@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: nginx
+  name: nginx-svc
+spec:
+  ports:
+  - port: 80
+    # port to access from outside world
+    nodePort: 30000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: nginx
+  type: NodePort
+status:
+  loadBalancer: {}

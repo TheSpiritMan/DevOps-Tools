@@ -1,0 +1,16 @@
+# Service for frontend 
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  type: LoadBalancer
+  ports: 
+  - port: 80
+    nodePort: 32555
+  selector:
+    app: guestbook
+    tier: frontend

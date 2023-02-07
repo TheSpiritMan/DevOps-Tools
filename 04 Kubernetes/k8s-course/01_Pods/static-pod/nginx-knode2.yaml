@@ -1,0 +1,12 @@
+# copy this file in /etc/kubernetes/manifests folder of the machine 'knode2'
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-static-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 8080

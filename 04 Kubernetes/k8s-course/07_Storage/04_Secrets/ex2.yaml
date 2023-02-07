@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ex-2
+type: Opaque
+data:
+  username: VGhlU3Bpcml0TWFu
+  password: a3ViZXJuZXRlcy1kZW1v
+
+--- 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-ex2-pod
+spec:
+  containers:
+  - name: cont2
+    image: nginx
+    env:
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: ex-2
+          key: username
+    - name: SECRET_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: ex-2
+          key: password
+  restartPolicy: Never

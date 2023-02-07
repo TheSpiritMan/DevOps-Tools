@@ -1,0 +1,17 @@
+# service for redis master
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-master-svc
+  labels: 
+    app: redis
+    role: master
+    tier: backend
+spec:
+  ports: 
+  - port: 6379
+  type: ClusterIP
+  selector:
+    app: redis
+    role: master
+    tier: backend

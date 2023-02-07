@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: empty-dir-vol
+spec:
+  containers:
+  - name: centos
+    image: centos
+    command: ['sh','-c','echo "Hello from centos" > /shared-1/centos.txt; sleep 30000;']
+    volumeMounts:
+    - mountPath: /shared-1
+      name: shared-folder
+  
+  - name: ubuntu
+    image: ubuntu
+    command: ['sh','-c','echo "Hello from Ubuntu" > /shared-2/ubuntu.txt;sleep 30000;']
+    volumeMounts:
+    - mountPath: /shared-2
+      name: shared-folder
+    
+  - name: alpine
+    image: alpine
+    command: ['sh','-c','echo "Hello From Alpine" > /shared-3/alpine.txt;sleep 30000;']
+    volumeMounts:
+    - mountPath: /shared-3
+      name: shared-folder
+  
+  volumes:
+  - name: shared-folder
+    emptyDir: {}

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-tomcat-rs
+  labels:
+    app1: nginx
+    app2: tomcat
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app1: nginx
+      app2: tomcat
+  template:
+    metadata:
+      labels:
+        app1: nginx
+        app2: tomcat
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+      - name: tomcat
+        image: tomcat
+        ports:
+        - containerPort: 8080
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: n-t-svc
+  labels:
+    app: nginx-tomcat
+spec: 
+  ports:
+  - port: 80
+    name: nginx
+    nodePort: 32111
+    protocol: TCP
+    targetPort: 80
+
+  - port: 8080
+    name: tomcat
+    nodePort: 32222
+    protocol: TCP
+    targetPort: 8080
+  
+  selector:
+    app1: nginx
+    app2: tomcat
+  type: NodePort
+status:
+  loadBalancer: {}

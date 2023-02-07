@@ -1,0 +1,38 @@
+# It is working
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy-node-anti-affinity
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      affinity:
+        nodeAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 60
+            preference:
+              matchExpressions:
+              - key: zone
+                operator: In
+                values:
+                - east
+          - weight: 40
+            preference:
+              matchExpressions:
+              - key: type
+                operator: In
+                values:
+                - web
+      containers:
+      - name: nginx
+        image: nginx
+        ports: 
+        - containerPort: 80

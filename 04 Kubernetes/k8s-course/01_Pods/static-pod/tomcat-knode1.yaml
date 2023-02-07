@@ -1,0 +1,13 @@
+# copt this file to the /etc/kubernetes/manifests folder of the machine 'knode1'
+#
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat-static-pod
+spec:
+  containers:
+  - name: tomcat
+    image: tomcat
+    ports:
+    - containerPort: 8080

@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  persistentVolumeReclaimPolicy: Retain
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+
+--- 
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  labels:
+    app: polling-app
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage:  200Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: polling-app-mysql
+  labels: 
+    app: polling-app
+spec:
+  ports:
+  - port: 3306
+    # targetPort: 3306
+  selector:
+    app: polling-app
+    tier: mysql
+  clusterIP: None
+
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-root-password
+type: Opaque
+data:
+  password: cm9vdDEyMzU1
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-user-password
+type: Opaque
+data: 
+  username: dGhlc3Bpcml0bWFu
+  password: c2VjcmV0ZGVtbzAw
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-db-url
+type: Opaque
+data:
+  database: cG9sbHM=
+  # url: 'jdbc:mysql://polling-app-mysql:3306/polls'
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polling-app-mysql
+  labels:
+    app: polling-app
+spec:
+  selector:
+    matchLabels:
+      app: polling-app
+      tier: mysql
+  strategy: 
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: polling-app
+        tier: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-root-password
+              key: password
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: mysql-db-url
+              key: database
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-user-password
+              key: username
+        - name: MYSQL_PASSWORD
+          valueFrom:  
+            secretKeyRef:
+              name: mysql-user-password
+              key: password
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc

@@ -1,0 +1,26 @@
+# make sure you create taint before running this file.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taint-1
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      tolerations:  
+      - key: zone
+        operator: Equal
+        value: red
+        effect: NoSchedule
+      containers:
+      - name: nginx
+        image: nginx
+        ports: 
+        - containerPort: 80

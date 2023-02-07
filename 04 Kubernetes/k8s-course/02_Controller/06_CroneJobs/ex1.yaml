@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata: 
+  name: date
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: mypod
+          labels:
+            app: myapp
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: hello
+            image: bash
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello Fromthe K8s Cluster

@@ -1,0 +1,10 @@
+# imperative commands
+kubectl run env-ex1 --image=nginx --env='sessions=cka'
+
+# once pod is created
+ kubectl exec -it env-ex1 -- bash
+- printenv
+
+# then we can see all the env of the container with contains our custom env var
+# env is create in container level
+# label is created in pod level

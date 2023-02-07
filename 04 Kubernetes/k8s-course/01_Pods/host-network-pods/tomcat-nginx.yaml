@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat-nginx
+spec:
+  containers:
+  - name: tomcat
+    image: tomcat
+    ports:
+    - containerPort: 8080
+  
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+
+  hostNetwork: true

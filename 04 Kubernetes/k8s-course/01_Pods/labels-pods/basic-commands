@@ -1,0 +1,9 @@
+# basic imperative commands
+kubectl run pod1 --image nginx --lables='env=prod,type=db,owner=gc'
+kuebctl run pod2 --image nginx -l 'env=dev,type=webapp,owner=gc'
+
+kubectl get po -l env=prod
+kuebctl get po -l env=dev,owner=gc
+
+# label is created in pod level
+# env is created in container level

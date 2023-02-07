@@ -1,0 +1,17 @@
+# service for redis slave
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave-svc
+  labels:
+    app: redis
+    role: slave
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+  type: ClusterIP
+  selector:
+    app: redis 
+    role: slave
+    tier: backend

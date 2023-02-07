@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-ex1
+spec:
+  containers:
+  - name: env-ex1
+    image: gcr.io/google-samples/node-hello:1.0
+    env:
+    - name: WELCOME
+      value: "Hello From the ENV"
+    - name: CKAEXAM
+      value: "CKA exam perparation"
